@@ -221,8 +221,8 @@ h3 {
 
 /* Style the indicator (dot/circle) */
 .radio-container .radio-checkmark:after {
- 	top: 7px;
-	left: 6px;
+ 	top: 6px;
+	left: 5.5px;
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;

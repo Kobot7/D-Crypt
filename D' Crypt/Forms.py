@@ -13,8 +13,8 @@ from wtforms import Form, SelectField, TextAreaField, RadioField, IntegerField, 
 class ShiftCipherForm(Form):
     numberList = list(range(1,26+1))
 
-    encryptionString = RadioField('', choices=[('alpha', 'Encrypt only Uppercase and Lowercase characters'),
-                                               ('base64', 'Encrypt all Base64 characters')]
+    encryptionString = RadioField('', choices=[('alpha', 'Encrypt/Decrypt only Uppercase and Lowercase characters'),
+                                               ('base64', 'Encrypt/Decrypt all Base64 characters')]
                                   , default='alpha')
 
     shiftKey = SelectField('Key:', choices=numberList, default='3')
@@ -29,7 +29,7 @@ class ShiftCipherForm(Form):
 class RailFenceForm(Form):
     railKey = IntegerField('Key: ', [validators.NumberRange(min=1, max = 100, message="This application only supports rail key value of 1 to 100.")])
 
-    encryptionString = RadioField('', choices=[('space', 'Encrypt with Spaces'),
+    encryptionString = RadioField('', choices=[('space', 'Encrypt/Decrypt with Spaces'),
                                                ('no-space', 'Remove all Spaces')]
                                   , default='space')
 
@@ -59,7 +59,7 @@ class AesForm(Form):
 class ColumnarTranspositionForm(Form):
     key = StringField('Key: ', [validators.DataRequired()])
 
-    encryptionString = RadioField('', choices=[('space', 'Encrypt with Spaces'),
+    encryptionString = RadioField('', choices=[('space', 'Encrypt/Decrypt with Spaces'),
                                                ('no-space', 'Remove all Spaces')]
                                   , default='space')
 

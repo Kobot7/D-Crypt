@@ -24,7 +24,7 @@ vernam-cipher.html
 
         <div class="alert alert-danger mt-3" role="alert" id="keyError">
             <i class="fa fa-times" aria-hidden="true" style="color: red;"></i>
-            Key has to be between 2-100 (inclusive)
+            <span id="keyErrorMessage"></span>
         </div>
     </div> <!--Form Group-->
 {% endblock %}
@@ -38,8 +38,19 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 function validateInputs() {
-    keyValue = document.getElementById("railKey").value;
-    if (keyValue < 2 || keyValue > 100) {
+    document.getElementById("keyError").style.display = 'none';
+
+    keyValue = document.getElementById("key").value.replace(/\s/g,'');
+    inputValue = document.getElementById("inputText").value.replace(/\s/g,'');
+
+    if (keyValue.length!=inputValue.length) {
+        document.getElementById("keyErrorMessage").innerText = 'Pad has to be equal length to Input text';
+        document.getElementById("keyError").style.display = '';
+        return false;
+    }
+
+    else if (!keyValue.match(/^[a-zA-Z]+$/)) {
+        document.getElementById("keyErrorMessage").innerText = 'Pad should only contain alphabets (a-z, A-Z)';
         document.getElementById("keyError").style.display = '';
         return false;
     }

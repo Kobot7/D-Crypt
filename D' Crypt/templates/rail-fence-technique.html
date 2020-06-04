@@ -23,7 +23,7 @@ rail-fence-technique.html
 
         <div class="alert alert-danger mt-3" role="alert" id="keyError">
             <i class="fa fa-times" aria-hidden="true" style="color: red;"></i>
-            Key has to be between 2-100 (inclusive)
+            Key has to be between 2-1000 (inclusive)
         </div>
     </div> <!--Form Group-->
 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function validateInputs() {
     keyValue = document.getElementById("railKey").value;
-    if (keyValue < 2 || keyValue > 100) {
+    if (keyValue < 2 || keyValue > 1000) {
         document.getElementById("keyError").style.display = '';
         return false;
     }

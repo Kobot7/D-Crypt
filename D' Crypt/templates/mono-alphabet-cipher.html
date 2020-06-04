@@ -23,7 +23,7 @@ mono-alphabet-cipher.html
 
         <div class="alert alert-danger mt-3" role="alert" id="keyError">
             <i class="fa fa-times" aria-hidden="true" style="color: red;"></i>
-            Key should contain all 26 alphabetic characters
+            <span id="keyErrorValue"></span>
         </div>
     </div> <!--Form Group-->
 {% endblock %}
@@ -37,13 +37,24 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 function validateInputs() {
+    document.getElementById("keyError").style.display = 'none';
+
     keyValue = document.getElementById("key").value;
-    if ((new Set(keyValue.toLowerCase().replace(/[^a-z]/g, "").split("")).size === 26) && (keyValue.length==26)) {
-        return true;
-    }
-    else {
+
+    if (!new Set(keyValue.toLowerCase().replace(/[^a-z]/g, "").split("")).size === 26) {
+        document.getElementById("keyErrorValue").innerText = 'Key should contain all 26 alphabetic characters';
         document.getElementById("keyError").style.display = '';
         return false;
+    }
+
+    else if (keyValue.length!=26) {
+        document.getElementById("keyErrorValue").innerText = 'Key should not have a letter repeating more than once';
+        document.getElementById("keyError").style.display = '';
+        return false;
+    }
+
+    else {
+        return true;
     }
 }
 {% endblock %}

@@ -9,7 +9,7 @@ diffie-hellman-key-exchange.html
 -->
 
 {% extends "base.html" %}
-{% block title %}D&apos; Crypt | Diffie Hellman Key Exchange{% endblock %}
+{% block title %}D&apos; Crypt | Diffie-Hellman Key Exchange{% endblock %}
 {% block style %}
 
 /* Large devices (desktops, 992px and up) */
@@ -23,6 +23,11 @@ diffie-hellman-key-exchange.html
 #primeTwoError {
     width: 270px;
 }
+
+#privateOneError,
+#privateTwoError {
+    width: 370px;
+}
 {% endblock %}
 
 {% block headScripts %}{% endblock %}
@@ -33,7 +38,7 @@ diffie-hellman-key-exchange.html
     <div class="row justify-content-center">
         <div class="col-md-8">
             <br>
-            <h1>Diffie Hellman Key Exchange</h1>
+            <h1>Diffie-Hellman Key Exchange</h1>
             <br>
 
             <form method="GET" id="cipher-form" onsubmit="return validateInputs();" class="row">
@@ -58,10 +63,18 @@ diffie-hellman-key-exchange.html
 
                 <div class="form-group col-lg-6">
                     {{ render_field_label(form.privateOne, class= "form-control", placeholder="") }}
+                    <div class="alert alert-danger mt-3" role="alert" id="privateOneError">
+                        <i class="fa fa-times" aria-hidden="true" style="color: red;"></i>
+                        Value has to be a whole number (0 and above).
+                    </div>
                 </div> <!--Form Group-->
 
                 <div class="form-group col-lg-6">
                     {{ render_field_label(form.privateTwo, class= "form-control", placeholder="") }}
+                    <div class="alert alert-danger mt-3" role="alert" id="privateTwoError">
+                        <i class="fa fa-times" aria-hidden="true" style="color: red;"></i>
+                        Value has to be a whole number (0 and above).
+                    </div>
                 </div> <!--Form Group-->
 
                 <div class="form-group form-inline col-md-12 my-4">
@@ -95,21 +108,34 @@ diffie-hellman-key-exchange.html
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("primeOneError").style.display = 'none';
     document.getElementById("primeTwoError").style.display = 'none';
+    document.getElementById("privateOneError").style.display = 'none';
+    document.getElementById("privateTwoError").style.display = 'none';
 });
 
 function validateInputs() {
     document.getElementById("primeOneError").style.display = 'none';
     document.getElementById("primeTwoError").style.display = 'none';
+    document.getElementById("privateOneError").style.display = 'none';
+    document.getElementById("privateTwoError").style.display = 'none';
 
     primeOne = document.getElementById("primeOne").value;
     primeTwo = document.getElementById("primeTwo").value;
-
+    privateOne = document.getElementById("privateOne").value;
+    privateTwo = document.getElementById("privateTwo").value;
     if (!isPrime(primeOne)) {
         document.getElementById("primeOneError").style.display = '';
         return false;
     }
     else if (!isPrime(primeTwo)) {
         document.getElementById("primeTwoError").style.display = '';
+        return false;
+    }
+    else if (!privateOne.match(/^\+?(0|[1-9]\d*)$/)) {
+        document.getElementById("privateOneError").style.display = '';
+        return false;
+    }
+    else if (!privateTwo.match(/^\+?(0|[1-9]\d*)$/)) {
+        document.getElementById("privateTwoError").style.display = '';
         return false;
     }
     else {
