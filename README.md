@@ -13,5 +13,26 @@ D' Crypt is a web-based Python application that aims to enhance the learning of 
 ## Installation
 Please refer to [Installation Guide.docx](https://github.com/Kobot7/D-Crypt/blob/master/Installation%20Guide.docx).
 
+After installation is complete, you can start the application by running `D' Crypt main.py`.
+
 ## User Guide
 Please refer to [User Guide.docx](https://github.com/Kobot7/D-Crypt/blob/master/User%20Guide.docx).
+
+## Tools
+The Cryptography tools available are:
+- AES
+- Diffie-Hellman Key Exchange
+- Mono-alphabet Cipher
+- Rail Fence Technique
+- Shift Cipher
+- Simple Columnar Transposition Technique
+- Vernam Cipher
+
+## Learning Materials
+The learning materials include the following topics:
+- Mono-alphabet Cipher
+- Rail Fence Technique
+- Shift Cipher
+- Simple Columnar Transposition Technique
+- Types of Attack
+- Vernam Cipher
