@@ -1,0 +1,140 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D' Crypt
+aes.html
+-->
+
+{% extends "cipher-base.html" %}
+{% block title %}D' Crypt | AES{% endblock %}
+{% block style %}
+{% endblock %}
+
+{% block headScripts %}{% endblock %}
+
+{% block cipherName %}AES{% endblock %}
+
+{% block inputFields %}
+    <div class="form-group form-inline">
+        {{ render_field_label(cipherForm.mode, class= "form-control", style="width: 90px;") }}
+    </div> <!--Form Group-->
+
+    <div class="form-group form-inline">
+        {{ render_field_label(cipherForm.keySize, class= "form-control", style="width: 90px;") }}
+    </div> <!--Form Group-->
+
+    <div class="form-group form-inline">
+        {{ render_field_label(cipherForm.key, class= "form-control mr-2", style="width: 385px;") }}
+        <input class="btn btn-generate d-inline mr-2" type="button" value="Generate Key" onClick="generateKey();">
+
+        <div class="alert alert-danger mt-3" role="alert" id="keyError">
+            <i class="fa fa-times" aria-hidden="true" style="color: red;"></i>
+            Key should be <span id="keyErrorValue"></span> characters long.
+        </div>
+    </div> <!--Form Group-->
+
+    <div class="form-group form-inline" id="ivFields">
+        {{ render_field_label(cipherForm.iv, class= "form-control mr-2", style="width: 330px;") }}
+        <input class="btn btn-generate d-inline mr-2" type="button" value="Generate IV" onClick="generateIV();">
+
+        <div class="alert alert-danger mt-3" role="alert" id="ivError">
+            <i class="fa fa-times" aria-hidden="true" style="color: red;"></i>
+            IV should be <span id="ivErrorValue"></span> characters long.
+        </div>
+    </div> <!--Form Group-->
+
+    <div class="form-group">
+        {% for subfield in cipherForm.encryptionString %}
+            <label class="radio-container">
+                {{ subfield.label }}
+                {{ subfield }}
+                <span class="radio-checkmark"></span>
+            </label>
+        {% endfor %}
+    </div> <!--Form Group-->
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block bodyScripts %}
+document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("keyError").style.display = 'none';
+    document.getElementById("ivError").style.display = 'none';
+
+    toggleView();
+    document.getElementById("mode").addEventListener("change", toggleView);
+});
+
+function toggleView() {
+    if (document.getElementById("mode").value=='ECB') {
+        document.getElementById("ivFields").style.display = 'none';
+    }
+
+    else {
+        document.getElementById("ivFields").style.display = '';
+    }
+}
+
+function generateKey() {
+    length = document.getElementById("keySize").value;
+
+    var chars = '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+	var randomKey = '';
+	for (var i=0; i<length/8; i++) {
+		var randomChar = Math.floor(Math.random() * chars.length);
+		randomKey += chars.substring(randomChar,randomChar+1);
+	}
+
+    document.getElementById("key").value = randomKey;
+}
+
+function generateIV() {
+    var chars = '!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+	var randomKey = '';
+	for (var i=0; i<16; i++) {
+		var randomChar = Math.floor(Math.random() * chars.length);
+		randomKey += chars.substring(randomChar,randomChar+1);
+	}
+
+    document.getElementById("iv").value = randomKey;
+}
+
+function validateInputs() {
+    document.getElementById("keyError").style.display = 'none';
+    document.getElementById("ivError").style.display = 'none';
+
+    keyValid = validateKey();
+    ivValid = validateIv();
+
+    if (keyValid==true && ivValid==true) {
+        return true;
+    }
+
+    else {
+        return false;
+    }
+}
+
+function validateKey() {
+    keyBytes = document.getElementById("keySize").value/8;
+    if (document.getElementById("key").value.length != keyBytes) {
+        document.getElementById("keyError").style.display = '';
+        document.getElementById("keyErrorValue").innerText = keyBytes;
+        return false;
+    }
+    return true;
+}
+
+function validateIv() {
+    if (document.getElementById("iv").value.length != 16) {
+        document.getElementById("ivError").style.display = '';
+        document.getElementById("ivErrorValue").innerText = keyBytes;
+        return false;
+    }
+    return true;
+}
+{% endblock %}

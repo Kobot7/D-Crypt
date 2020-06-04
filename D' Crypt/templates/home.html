@@ -1,0 +1,135 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D' Crypt
+home.html
+-->
+
+{% extends "base.html" %}
+{% block title %}Welcome to D&apos; Crypt!{% endblock %}
+{% block style %}
+    #landingImage {
+        height: 100%;
+    }
+
+    .card {
+        background: #333;
+    }
+
+    .card ul li a {
+        color: #d2d2d2;
+    }
+
+    .card ul li:hover * {
+        background-color: #555;
+        font-weight: bold;
+    }
+
+    @media (min-width: 576px) {
+        .card {
+            width: 90%;
+        }
+    }
+
+    /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+    @media (min-width: 768px) {
+        .card {
+            width: 100%;
+        }
+
+        #landingDiv {
+            height: 280px;
+        }
+    }
+
+    /* Large devices (desktops, 992px and up) */
+    @media (min-width: 992px) {
+        .card {
+            width: 100%;
+        }
+    }
+
+    /* Extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) {
+        .card {
+            width: 90%;
+        }
+    }
+{% endblock %}
+
+{% block headScripts %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-12 text-center" id="landingDiv">
+        <img id="landingImage" src="/static/images/landingPage.svg">
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-4" style="padding-bottom: 50px;">
+        <div class="card mx-auto">
+            <div class="card-header">
+                <h2>Tools</h2>
+            </div>
+
+            <ul class="list-group list-group-flush nav flex-column rounded">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/cipher/aes">AES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cipher/diffie-hellman-key-exchange">Diffie Hellman Key Exchange</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/cipher/mono-alphabet-cipher">Mono-alphabet Cipher</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cipher/rail-fence-technique">Rail Fence Technique</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/cipher/shift-cipher">Shift Cipher</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cipher/simple-columnar-transposition-technique">Simple Columnar Transposition Technique</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cipher/vernam-cipher">Vernam Cipher</a>
+                </li>
+            </ul>
+        </div> <!--Card-->
+    </div> <!--Col-->
+
+    <div class="col-md-4">
+        <div class="card mx-auto">
+            <div class="card-header">
+                <h2>Learn</h2>
+            </div>
+
+            <ul class="list-group list-group-flush nav flex-column rounded">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/learn/mono-alphabet-cipher">Mono-alphabet Cipher</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/learn/rail-fence-technique">Rail Fence Technique</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/learn/shift-cipher">Shift Cipher</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/learn/simple-columnar-transposition-technique">Simple Columnar Transposition Technique</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/learn/types-of-attack">Types of Attack</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/learn/vernam-cipher">Vernam Cipher</a>
+                </li>
+            </ul>
+        </div> <!--Card-->
+    </div> <!--Col-->
+</div>
+{% endblock %}
+
+{% block bodyScripts %}{% endblock %}

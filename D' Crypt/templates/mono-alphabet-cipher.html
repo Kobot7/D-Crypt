@@ -1,0 +1,49 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D' Crypt
+mono-alphabet-cipher.html
+-->
+
+{% extends "cipher-base.html" %}
+{% block title %}D' Crypt | Mono-alphabet Cipher{% endblock %}
+{% block style %}{% endblock %}
+
+{% block headScripts %}{% endblock %}
+
+{% block cipherName %}Mono-alphabet Cipher{% endblock %}
+{% block learnLink %}<p class="tabLink">Click <a href="/learn/mono-alphabet-cipher">here</a> to learn how it works.</p>{% endblock %}
+
+{% block inputFields %}
+    <div class="form-group form-inline">
+        {{ render_field_label(cipherForm.key, class= "form-control mr-2", style="width: 400px;") }}
+
+        <div class="alert alert-danger mt-3" role="alert" id="keyError">
+            <i class="fa fa-times" aria-hidden="true" style="color: red;"></i>
+            Key should contain all 26 alphabetic characters
+        </div>
+    </div> <!--Form Group-->
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block bodyScripts %}
+document.addEventListener("DOMContentLoaded", function(){
+  document.getElementById("keyError").style.display = 'none';
+});
+
+function validateInputs() {
+    keyValue = document.getElementById("key").value;
+    if ((new Set(keyValue.toLowerCase().replace(/[^a-z]/g, "").split("")).size === 26) && (keyValue.length==26)) {
+        return true;
+    }
+    else {
+        document.getElementById("keyError").style.display = '';
+        return false;
+    }
+}
+{% endblock %}

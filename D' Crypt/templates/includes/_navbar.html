@@ -1,0 +1,74 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D' Crypt
+_navbar.html
+-->
+
+{% from "includes/_formhelper.html" import render_field %}
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+  <!-- Brand -->
+  <a class="navbar-brand" href="/home"><img src="/static/images/logo.svg" alt="D' Crypt logo"></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+      <li class="nav-item {{ 'active' if currentPage == 'home' else '' }} ml-2">
+          <a class="nav-link" href="/home">Home</a>
+      </li>
+
+      <li class="nav-item dropdown ml-2">
+        <a class="nav-link dropdown-toggle {{ 'active' if currentPage in ['aes'
+                                                                          , 'diffie-hellman-key-exchange'
+                                                                          , 'mono-alphabet-cipher'
+                                                                          , 'rail-fence-technique'
+                                                                          , 'shift-cipher'
+                                                                          , 'simple-columnar-transposition-technique'
+                                                                          , 'vernam-cipher'] else '' }}"
+
+           href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Tools
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item {{ 'active' if currentPage == 'aes' else '' }}" href="/cipher/aes">AES</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'diffie-hellman-key-exchange' else '' }}" href="/cipher/diffie-hellman-key-exchange">Diffie Hellman Key Exchange</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'mono-alphabet-cipher' else '' }}" href="/cipher/mono-alphabet-cipher">Mono-alphabet Cipher</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'rail-fence-technique' else '' }}" href="/cipher/rail-fence-technique">Rail Fence Technique</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'shift-cipher' else '' }}" href="/cipher/shift-cipher">Shift Cipher</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'simple-columnar-transposition-technique' else '' }}" href="/cipher/simple-columnar-transposition-technique">Simple Columnar Transposition</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'vernam-cipher' else '' }}" href="/cipher/vernam-cipher">Vernam Cipher</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown ml-2">
+        <a class="nav-link dropdown-toggle {{ 'active' if currentPage in ['learn-types-of-attack'
+                                                                          , 'learn-aes'
+                                                                          , 'learn-mono-alphabet-cipher'
+                                                                          , 'learn-rail-fence-technique'
+                                                                          , 'learn-shift-cipher'
+                                                                          , 'learn-simple-columnar-transposition-technique'
+                                                                          , 'learn-vernam-cipher'] else '' }}"
+
+           href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Learn
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item {{ 'active' if currentPage == 'learn-types-of-attack' else '' }}" href="/learn/types-of-attack">Types of Attack</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'learn-mono-alphabet-cipher' else '' }}" href="/learn/mono-alphabet-cipher">Mono-alphabet Cipher</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'learn-rail-fence-technique' else '' }}" href="/learn/rail-fence-technique">Rail Fence Technique</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'learn-shift-cipher' else '' }}" href="/learn/shift-cipher">Shift Cipher</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'learn-simple-columnar-transposition-technique' else '' }}" href="/learn/simple-columnar-transposition-technique">Simple Columnar Transposition</a>
+          <a class="dropdown-item {{ 'active' if currentPage == 'learn-vernam-cipher' else '' }}" href="/learn/vernam-cipher">Vernam Cipher</a>
+        </div>
+      </li>
+    </ul>
+  </div> <!-- Nav Collapse -->
+</nav>

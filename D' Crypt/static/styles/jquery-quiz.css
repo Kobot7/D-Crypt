@@ -1,0 +1,65 @@
+/*
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D' Crypt
+jquery-quiz.css
+
+DISCLAIMER:
+Plugin was made by jchamill.
+Link to plugin: https://github.com/jchamill/jquery-quiz
+Adjustments to code were made by me for the purpose of adapting it for this project.
+Refer to external_license > jquery-quiz LICENSE.txt for more information.
+*/
+
+.question {
+    font-size: 1.25em;
+}
+
+.answers {
+    list-style: none;
+    padding: 0;
+}
+
+.answers a {
+    color: #111;
+    display: block;
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.answers a.correct {
+    background: #090;
+}
+.answers a.incorrect {
+    background: #c00;
+}
+
+.answers a.correct,
+.answers a.incorrect {
+    color: #fff;
+}
+
+#quiz-controls {
+    background: #444;
+    color: #fff;
+    padding: 0.5em 1em;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#quiz-response {}
+#quiz-results {
+    font-size: 1.25em;
+}
+
+/* Quiz State Overrides */
+
+.quiz-results-state #quiz-controls {
+    background: none;
+    padding: 0;
+}

@@ -1,0 +1,224 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D' Crypt
+learn-types-of-attack.html
+-->
+
+
+{% extends "base.html" %}
+{% block title %}D' Crypt | Types of Attack{% endblock %}
+{% block style %}
+ol {
+    margin-top: -10px !important;
+}
+
+.attack-category,
+.attack-category i,
+li u {
+    color: #e898ac;
+}
+
+.rotated {
+    transform: rotate(180deg);
+   -webkit-transform: rotate(180deg);
+   -ms-transform: rotate(180deg);
+}
+{% endblock %}
+
+{% block headScripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type = "text/css" href = "/static/styles/jquery-quiz.css">
+<script src="/static/scripts/jquery-quiz.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <br>
+        <h1>Types of Attack</h1>
+
+        <br>
+        <h2>Introduction</h2>
+        <p>A cyberattack is a malicious and deliberate attempt by an individual or organization to breach the information system of another individual or organization.
+            Usually, the attacker seeks some type of benefit from disrupting the victim’s network.</p>
+
+        <p>Attacks can be classified under 2 categories:
+            <ol>
+                <li>Passive</li>
+                <li>Active</li>
+            </ol>
+        </p>
+
+        <img src="/static/images/attack-flowchart.svg" alt="flowchart">
+
+        <br>
+        <h2>Passive Attacks</h2>
+        <p>Passive attacks <b>do not</b> involve any modifications to the contents of an original message.
+            The purpose is solely to gain information about the target without changing any data. The attack affects the confidentiality of information.</p>
+
+        <p>Passive attacks are tough to detect as they do not involve any alteration of data, hence the sender and receiver will not suspect
+        a third party of capturing the message.</p>
+
+        <p>There are 2 types of passive attacks: </p>
+
+        <div>
+            <b class="attack-category rotate-oc" data-toggle="collapse" data-target="#message-contents">1. Release of message contents <i class="fas fa-angle-down rotated" aria-hidden="true"></i></b>
+            <p id="message-contents" class="collapse show">Recipient sends message to someone against sender's wish.
+                <br><br>
+                For example, Alice sends a sensitive document to Bob, who sends the document to Celia despite the fact
+                that the document was confidential and not meant to be seen by others.
+            </p>
+        </div>
+
+        <div>
+            <b class="attack-category rotate-oc" data-toggle="collapse" data-target="#traffic-analysis">2. Traffic analysis <i class="fas fa-angle-down rotated" aria-hidden="true"></i></b>
+            <div id="traffic-analysis" class="collapse show">
+                <p>Attacker sniffs* the network to collect a range of information such as: location & identity of communicating hosts, nature of communication etc.</p>
+                <p class="font-italic small">*Sniffing is the electronic form of eavesdropping on the communications that computers transmit across the network.
+                This can be done using packet analyzer tools such as Wireshark.</p>
+            </div>
+        </div>
+
+        <br>
+        <h2>Active Attacks</h2>
+        <p>In contrast to passive attacks, active attacks involve modification to the contents of the original message.</p>
+
+        <p>There are 3 sub-categories of active attacks:</p>
+
+        <div>
+            <b class="attack-category rotate-oc" data-toggle="collapse" data-target="#fabrication">1. Fabrication <i class="fas fa-angle-down rotated" aria-hidden="true"></i></b>
+            <p id="fabrication" class="collapse show">Fabrication attack affects the authenticity of the communication. The attacker inserts a fake message
+            into the network, under the pretence that it was by an authorized user.</p>
+        </div>
+
+        <div>
+            <b class="attack-category rotate-oc" data-toggle="collapse" data-target="#interruption">2. Interruption <i class="fas fa-angle-down rotated" aria-hidden="true"></i></b>
+            <p id="interruption" class="collapse show">Interruption attack affects the availability of information/system. It involves the obstruction of communication
+                between one or more systems.
+                <br><br>
+                For example, in a Denial of Service attack (DoS) the attacker sends several requests to the target server and
+                overloads it with traffic. As the junk requests are processed constantly, the server becomes overwhelmed and hence delays
+                responding to legitimate requests.
+            </p>
+        </div>
+
+        <div>
+            <b class="attack-category rotate-oc" data-toggle="collapse" data-target="#modification">3. Modification <i class="fas fa-angle-down rotated" aria-hidden="true"></i></b>
+            <p id="modification" class="collapse show">Modification attack affects the integrity of a message. It means that some portion of a message is altered,
+                 delayed or recorded to produce an unauthorised effect. Modification attacks can be divided into replay attacks and alterations.
+                 <br><br>
+                 Replay attacks happen when a hacker detects a secure network communication or data transmission, intercepts it,
+                 and then retransmits it as if they were their own. For example, Alice sends Bob proof of her identity. Celia eavesdrop
+                 on the conversation and keeps the proof of Alice identity. Celia subsequently requests to connect to Bob, posing as Alice
+                 by sending him the intercepted proof from the previous session. Bob accepts and Celia is thus granted access.
+                 <br><br>
+                 Alteration is when a message is intercepted, modified and sent it to its destination.
+            </p>
+        </div>
+    </div> <!--Main col-->
+
+    <div id="quiz" class="col-md-8 my-4">
+        <div id="quiz-header">
+            <h2>Quiz</h2>
+            <p class="faded">Take a short quiz to test your knowledge about the types of attack!</p>
+        </div>
+        <div id="quiz-start-screen" class="col-md-8">
+            <p><a href="#" id="quiz-start-btn" class="btn btn-white">Start Quiz</a></p>
+        </div>
+    </div> <!--Quiz-->
+</div> 
+{% endblock %}
+
+{% block bodyScripts %}
+$('#quiz').quiz({
+  //resultsScreen: '#results-screen',
+  //counter: false,
+  //homeButton: '#custom-home',
+  counterFormat: 'Question %current of %total',
+  questions: [
+    {
+      'q': 'How many types of attack are there?',
+      'options': [
+        '0',
+        '1',
+        '2',
+        '3',
+        'None of the above'
+      ],
+      'correctIndex': 2,
+      'correctResponse': 'Well done! There are 2 types of attack: Passive and Active.',
+      'incorrectResponse': 'Oh no, you may want to reread the page before attempting this quiz. There are 2 types of attack: Passive and Active.'
+    },
+        {
+      'q': 'Fabrication affects _______?',
+      'options': [
+        'Availability',
+        'Authenticity',
+        'Confidentiality',
+        'Integrity',
+        'Non-Repudiation'
+      ],
+      'correctIndex': 1,
+      'correctResponse': 'Correct!',
+      'incorrectResponse': 'Sorry, wrong answer :( Fabrication affects authenticity.'
+    },
+    {
+      'q': 'What category do Denial of Service (DoS) attacks fall under?',
+      'options': [
+        'Release of Message Content',
+        'Traffic Analysis',
+        'Fabrication',
+        'Interruption',
+        'Replay Attacks',
+        'Modification'
+      ],
+      'correctIndex': 3,
+      'correctResponse': 'Yes! Denial of Service attacks affects the availability of a system. It is an active attack and falls under the interruption sub-category.',
+      'incorrectResponse': 'Oops :( Denial of Service attacks affects the availability of a system. It is an active attack and falls under the interruption sub-category.'
+    },
+    {
+      'q': 'Traffic Analysis involves the sniffing of network traffic and modification to traffic contents.',
+      'options': [
+        'True',
+        'False'
+      ],
+      'correctIndex': 1,
+      'correctResponse': 'Good job! Traffic Analysis is a passive attack, which means that it does not involve modification to any message.',
+      'incorrectResponse': 'Nope. Traffic Analysis is a passive attack, which means that it does not involve modification to any message.'
+    },
+    {
+      'q': 'Release of message contents affects _______?',
+      'options': [
+        'Availability',
+        'Authenticity',
+        'Confidentiality',
+        'Integrity',
+        'Non-Repudiation'
+      ],
+      'correctIndex': 2,
+      'correctResponse': 'Correct!',
+      'incorrectResponse': 'Sorry, wrong answer :( Release of message contents affects confidentiality.'
+    },
+    {
+      'q': 'Replay attacks are a form of active attack.',
+      'options': [
+        'True',
+        'False'
+      ],
+      'correctIndex': 0,
+      'correctResponse': 'Good job!',
+      'incorrectResponse': 'Incorrect :('
+    }
+  ]
+});
+
+document.querySelectorAll('.rotate-oc').forEach(item => {
+    item.addEventListener('click', event => {
+        item.querySelector('.fas').classList.toggle("rotated");
+    })
+})
+{% endblock %}

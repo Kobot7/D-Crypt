@@ -1,0 +1,119 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D' Crypt
+learn-mono-alphabet-cipher.html
+-->
+
+{% extends "learn-base.html" %}
+{% block title %}D' Crypt | About Mono-alphabet Cipher{% endblock %}
+{% block style %}{% endblock %}
+
+{% block headScripts %}{% endblock %}
+
+{% block content %}
+<div class="col-md-9">
+    <br>
+    <h1>Mono-alphabet Cipher</h1>
+    <br>
+
+    <h2>How it Works</h2>
+    <p>
+        Mono-alphabet cipher is a form of substitution cipher which makes use of random substitution. Given the letter 'A',
+        it is replaced by a random letter from 'B' to 'Z'. There is no relationship between replacement of 'A' and replacement of 'B'.
+        <br><br>
+        The key can be any permutation of the 26 letters (26! = 4 x 10<sup>26</sup> possible permutations). This makes it
+        more difficult to break than the Shift cipher, which only has 26 possible keys.
+    </p>
+
+    <br>
+    <h2>Example</h2>
+    <p class="tabLink">Click <a href="/cipher/mono-alphabet-cipher">here</a> to try it out.</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-dark">
+            <tr>
+                <th>Original letter</th>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+                <td>G</td>
+                <td>H</td>
+                <td>I</td>
+                <td>J</td>
+                <td>K</td>
+                <td>L</td>
+                <td>M</td>
+                <td>N</td>
+                <td>O</td>
+                <td>P</td>
+                <td>Q</td>
+                <td>R</td>
+                <td>S</td>
+                <td>T</td>
+                <td>U</td>
+                <td>V</td>
+                <td>W</td>
+                <td>X</td>
+                <td>Y</td>
+                <td>Z</td>
+            </tr>
+            <tr>
+                <th>Key</th>
+                <td>A</td>
+                <td>Z</td>
+                <td>E</td>
+                <td>R</td>
+                <td>T</td>
+                <td>Y</td>
+                <td>U</td>
+                <td>I</td>
+                <td>O</td>
+                <td>P</td>
+                <td>Q</td>
+                <td>S</td>
+                <td>D</td>
+                <td>F</td>
+                <td>G</td>
+                <td>H</td>
+                <td>J</td>
+                <td>K</td>
+                <td>L</td>
+                <td>M</td>
+                <td>W</td>
+                <td>X</td>
+                <td>C</td>
+                <td>V</td>
+                <td>B</td>
+                <td>N</td>
+            </tr>
+        </table>
+    </div> <!--Table Div-->
+
+    <table class="table table-bordered table-dark mt-3">
+        <tr>
+            <th colspan="2">Key = AZERTYUIOPQSDFGHJKLMWXCVBN</th>
+        </tr>
+
+        <tr>
+            <th width="30px">Plaintext</th>
+            <td>Watch how the position of each letter moves</td>
+        </tr>
+
+        <tr>
+            <th>Ciphertext</th>
+            <td>Lwzlmomwmt mit stmmtkl comi a kafrgd gft</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block bodyScripts %}
+{% endblock %}

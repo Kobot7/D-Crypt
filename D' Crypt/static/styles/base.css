@@ -1,0 +1,242 @@
+/*
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D' Crypt
+base.css
+*/
+
+
+/* Overall */
+
+html {
+    font-family: Candara, Calibri;
+}
+
+body {
+    background-color: #111;
+    color: #d2d2d2;
+    padding-top: 60px;
+}
+
+h1 {
+    color: #ec5d37;
+}
+
+h2 {
+    color: #ff9973;
+}
+
+h3 {
+    color: #e898ac;
+}
+
+.tabLink a {
+    color: #ff9973;
+}
+
+/* Navbar */
+.navbar-brand img {
+    width: 120px;
+}
+
+.navbar{
+    background-color: rgba(60,60,60, 0.9)
+ }
+
+ /*Dropdown*/
+.dropdown-menu {
+  color: #fafafa;
+  background-color: #555;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-item {
+  color: rgba(255,255,255,.8);
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #fff;
+  background-color: #333;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #ff9973;
+  background-color: #555;
+}
+
+.dropdown-item.disabled, .dropdown-item:disabled {
+  color: #6c757d;
+}
+
+.dropdown-header {
+  color: #555;
+}
+
+.dropdown-item-text {
+  color: #fafafa;
+}
+
+
+/* Button */
+
+.btn {
+    padding: 10px 25px; /*TB, RL*/
+    border: none;
+}
+
+.btn-primary {
+    background-color: #00cfcc;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #24b6b4;
+    color: white;
+}
+
+.btn-blue {
+    background-color: #24b6b4;
+    color: white;
+}
+
+.btn-blue:hover {
+    background-color: #00cfcc;
+    color: white;
+}
+
+.btn-pink {
+    background-color: #f1597e;
+    color: white;
+}
+
+.btn-pink:hover {
+    background-color: #f5798e;
+    color: white;
+}
+
+.btn-orange {
+    background-color: #f79900;
+    color: white !important;
+}
+
+.btn-orange:hover {
+    background-color: #ffa810;
+    color: white;
+}
+
+.btn-generate {
+    height: 39px;
+    background-color: #f79900;
+    color: white;
+    padding: .375rem .75rem;
+}
+
+.btn-generate:hover {
+    background-color: #ffa810;
+    color: white;
+}
+
+.btn-white {
+    background-color: #eeeeee;
+    color: #222;
+    padding: .375rem 1rem;
+}
+
+.btn-white:hover {
+    background-color: #cccccc;
+    color: #222;
+}
+
+/* Alert */
+.alert {
+    padding: 5px 10px;
+}
+
+/* Form */
+.form-control:focus {
+    border-color: lime;
+    box-shadow: 0 0 1rem 0.2rem lime;
+}
+
+
+/* Radio Button */
+/* The container */
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radio-checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .radio-checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .radio-checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .radio-checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .radio-checkmark:after {
+ 	top: 7px;
+	left: 6px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+@media (min-width: 768px) {
+.navbar-nav {
+    float: left;
+    margin: 0;
+    margin-left: -15px;
+}
+}
+
+.navbar-nav {
+    margin: 0 -15px;
+}
