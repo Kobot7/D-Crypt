@@ -1,0 +1,40 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D-Crypt
+shift-cipher.html
+-->
+
+{% extends "cipher-base.html" %}
+{% block title %}D' Crypt | Shift Cipher{% endblock %}
+{% block style %}{% endblock %}
+
+{% block headScripts %}{% endblock %}
+
+{% block cipherName %}Shift Cipher{% endblock %}
+{% block learnLink %}<p class="tabLink">Click <a href="/learn/shift-cipher">here</a> to learn how it works.</p>{% endblock %}
+
+{% block inputFields %}
+    <div class="form-group form-inline">
+        {{ render_field_label(cipherForm.shiftKey, class= "form-control", style="width: 70px;") }}
+    </div> <!--Form Group-->
+
+    <div class="form-group">
+        {% for subfield in cipherForm.encryptionString %}
+            <label class="radio-container">
+                {{ subfield.label }}
+                {{ subfield }}
+                <span class="radio-checkmark"></span>
+            </label>
+        {% endfor %}
+    </div> <!--Form Group-->
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block bodyScripts %}
+{% endblock %}

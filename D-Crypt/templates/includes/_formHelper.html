@@ -1,0 +1,31 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D-Crypt
+_formHelper.html
+-->
+
+
+{% macro render_field(field) %}
+    {{ field(**kwargs)|safe }}
+    {{ field.placeholder }}
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+
+{% macro render_field_label(field) %}
+    {{ field.label(class="mr-2") }}
+    {{ field(**kwargs)|safe }}
+    {{ field.placeholder }}
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+    {% endif %}
+{% endmacro %}

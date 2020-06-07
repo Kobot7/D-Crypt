@@ -1,0 +1,146 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D-Crypt
+learn-rail-fence-technique.html
+-->
+
+{% extends "learn-base.html" %}
+{% block title %}D' Crypt | About Rail Fence Technique{% endblock %}
+{% block style %}{% endblock %}
+
+{% block headScripts %}{% endblock %}
+
+{% block content %}
+<div class="col-md-9">
+    <br>
+    <h1>Rail Fence Technique</h1>
+    <br>
+
+    <h2>How it Works</h2>
+    <p>Rail fence technique is an example of transposition technique.</p>
+    <p>
+        Rail fence technique encrypts plaintext using the following steps:
+        <ol>
+            <li>Write the plaintext as a sequence of diagonals.</li>
+            <li>Read the output as a sequence of rows.</li>
+        </ol>
+    </p>
+
+    <br>
+    <h2>Example</h2>
+    <p class="tabLink">Click <a href="/cipher/rail-fence-technique">here</a> to try it out.</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-dark text-center" style="width: 350px;">
+            <tr>
+                <td>T</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>t</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>-</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>s</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>-</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>-</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>n</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>h</td>
+                <td></td>
+                <td>-</td>
+                <td></td>
+                <td>e</td>
+                <td></td>
+                <td>t</td>
+                <td></td>
+                <td>g</td>
+                <td></td>
+                <td>e</td>
+                <td></td>
+                <td>-</td>
+                <td></td>
+                <td>p</td>
+                <td></td>
+                <td>a</td>
+                <td></td>
+                <td>d</td>
+                <td></td>
+                <td>d</td>
+                <td></td>
+                <td>w</td>
+                <td></td>
+                <td>!</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>e</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>x</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>o</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>u</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>n</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>o</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div> <!--Table Div-->
+
+    <table class="table table-bordered table-dark mt-3">
+        <tr>
+            <th colspan="2">Key = 3</th>
+        </tr>
+
+        <tr>
+            <th width="30px">Plaintext</th>
+            <td>The text goes up and down!</td>
+        </tr>
+
+        <tr>
+            <th>Ciphertext</th>
+            <td>Tt s  nh etge paddw!exouno</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block bodyScripts %}
+{% endblock %}

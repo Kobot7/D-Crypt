@@ -1,0 +1,118 @@
+<!--
+Name: Ko Jia Ling
+Admin No.: 190681D
+Module Group: IT2554-03
+
+Practical Assignment 1
+D-Crypt
+learn-shift-cipher.html
+-->
+
+
+{% extends "learn-base.html" %}
+{% block title %}D' Crypt | About Shift Cipher{% endblock %}
+{% block style %}{% endblock %}
+
+{% block headScripts %}{% endblock %}
+
+{% block content %}
+<div class="col-md-9">
+    <br>
+    <h1>Shift Cipher</h1>
+    <br>
+
+    <h2>How it Works</h2>
+    <p>
+        Shift cipher is a form of substitution cipher. It replaces each letter in the alphabet by a certain fixed position down and goes round robin.
+        <br><br>
+        For a key of 3, the letter 'A' is encrypted to 'D', and the letter 'G' is encrypted to 'J'.
+    </p>
+
+    <br>
+    <h2>Example</h2>
+    <p class="tabLink">Click <a href="/cipher/shift-cipher">here</a> to try it out.</p>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-dark">
+            <tr>
+                <th>Original letter</th>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+                <td>G</td>
+                <td>H</td>
+                <td>I</td>
+                <td>J</td>
+                <td>K</td>
+                <td>L</td>
+                <td>M</td>
+                <td>N</td>
+                <td>O</td>
+                <td>P</td>
+                <td>Q</td>
+                <td>R</td>
+                <td>S</td>
+                <td>T</td>
+                <td>U</td>
+                <td>V</td>
+                <td>W</td>
+                <td>X</td>
+                <td>Y</td>
+                <td>Z</td>
+            </tr>
+            <tr>
+                <th>Key = 3</th>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+                <td>G</td>
+                <td>H</td>
+                <td>I</td>
+                <td>J</td>
+                <td>K</td>
+                <td>L</td>
+                <td>M</td>
+                <td>N</td>
+                <td>O</td>
+                <td>P</td>
+                <td>Q</td>
+                <td>R</td>
+                <td>S</td>
+                <td>T</td>
+                <td>U</td>
+                <td>V</td>
+                <td>W</td>
+                <td>X</td>
+                <td>Y</td>
+                <td>Z</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+            </tr>
+        </table>
+    </div> <!--Table Div-->
+
+    <table class="table table-bordered table-dark mt-3">
+        <tr>
+            <th colspan="2">Key = 3</th>
+        </tr>
+
+        <tr>
+            <th width="30px">Plaintext</th>
+            <td>Encryption is cool!</td>
+        </tr>
+
+        <tr>
+            <th>Ciphertext</th>
+            <td>HqfuBswlrq lv frro!</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block bodyScripts %}
+{% endblock %}
