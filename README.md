@@ -5,7 +5,6 @@ D' Crypt is a web-based Python application that aims to enhance the learning of 
 
 ## Created Using
 -	[Python (python-3.7.0-amd64.exe)](https://www.python.org/downloads/release/python-370/)
--	[PyCharm (pycharm-community-2019.3.exe)](https://www.jetbrains.com/pycharm/download/other.html)
 -	PyCryptodome (version 3.9.7)
 -	Flask (version 1.1.2)
 - WTForms (version 2.3.9)
